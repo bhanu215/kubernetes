@@ -1,0 +1,22 @@
+---
+    - name: Create pods using deployment
+      hosts: kubernetes
+      become: true
+      user: ec2-user
+    
+      tasks:
+       - name: Copying deployment.yaml to destination
+         copy:
+          src: deployment.yaml
+          dest: deployment.yaml
+
+       - name: Copying Service.yaml to destination
+         copy:
+           src: service.yaml
+           dest: service.yaml
+
+       - name: create a deploymenti
+         command: kubectl apply -f deployment.yaml
+    
+       - name: create a Service
+         command: kubectl apply -f service.yaml
