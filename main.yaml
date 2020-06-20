@@ -2,7 +2,7 @@
     - name: Create pods using deployment
       hosts: kubernetes
       become: true
-      user: ec2-user
+      user: ubuntu
     
       tasks:
        - name: Copying deployment.yaml to destination
